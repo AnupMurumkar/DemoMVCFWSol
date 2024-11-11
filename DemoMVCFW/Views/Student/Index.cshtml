@@ -1,0 +1,41 @@
+﻿@model List<DemoMVCFW.Models.Student>
+
+@{
+    ViewBag.Title = "Student List";
+}
+
+<h2>Student List</h2>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.id</td>
+                <td>@student.name</td>
+                <td>@student.age</td>
+                <td>@student.email</td>
+                <td>
+                    @* Link to the Details view with the student ID *@
+                    <a href="@Url.Action("Details", "Student", new { id = student.id })">View Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

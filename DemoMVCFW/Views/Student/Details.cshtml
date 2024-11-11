@@ -1,0 +1,26 @@
+﻿@model DemoMVCFW.Models.Student
+
+@{
+    ViewBag.Title = "Student Details";
+}
+
+<h2>Student Details</h2>
+
+@if (Model != null && Model.id != 0)
+{
+    <div>
+        <p><strong>ID:</strong> @Model.id</p>
+        <p><strong>Name:</strong> @Model.name</p>
+        <p><strong>Age:</strong> @Model.age</p>
+        <p><strong>Email:</strong> @Model.email</p>
+    </div>
+    <p>
+        <a href="@Url.Action("Index", "Student")">Back to Student List</a>
+    </p>
+}
+else
+{
+    <div class="alert alert-warning">
+        Student information not available.
+    </div>
+}
