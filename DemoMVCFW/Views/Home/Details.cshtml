@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["title"]</title>
+</head>
+<body>
+
+<div>
+    <h4>@ViewData["header"]</h4>
+    <hr />
+     @{var student = ViewData["student"] as DemoMVCFW.Models.Student;}
+    <table>
+    <tr>
+        <th>Student ID</th>
+        <th>Student Name</th>
+        <th>Student Age</th>
+        <th>Student Email</th>
+    </tr>
+    <tr>
+        <td>
+            @student.id
+        </td>
+        td>
+            @student.name
+        </td>
+        td>
+            @student.age
+        </td>
+        <td>
+        @student.email
+        </td>
+    </tr>
+</table>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
+</body>
+</html>

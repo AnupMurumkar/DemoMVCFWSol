@@ -4,6 +4,15 @@ namespace DemoMVCFW.Models
 {
     public class studentImpl : IStudent
     {
+
+        public studentImpl() {
+
+            string filepath = @"C:\Users\anupm\Downloads\logs.txt";
+            string msg = $"student Repo created at : @{DateTime.Now.ToString()}";
+            using (StreamWriter sw = new StreamWriter(filepath)) { 
+            sw.WriteLine(msg);
+            }
+        }    
         public List<Student> DataSource()
         {
             return new List<Student>()

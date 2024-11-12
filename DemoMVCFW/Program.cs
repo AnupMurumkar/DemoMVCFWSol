@@ -1,7 +1,12 @@
+using DemoMVCFW.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+//builder.Services.AddControllersWithViews();
+builder.Services.AddMvc();
+builder.Services.AddTransient<IStudent, studentImpl>();
+builder.Services.AddTransient<DummyClass>();
 
 var app = builder.Build();
 

@@ -10,10 +10,12 @@ namespace DemoMVCFW.Controllers
     {
 
         private readonly IStudent _studentSerivce;
+        private readonly DummyClass _dummyClass;
 
-        public StudentController()
+        public StudentController(IStudent studentImpl , DummyClass dummyClass)
         {
-            _studentSerivce = new studentImpl();
+            _studentSerivce =  studentImpl;
+            _dummyClass = dummyClass;
         }
 
         public IActionResult Index()
@@ -25,7 +27,10 @@ namespace DemoMVCFW.Controllers
 
         public IActionResult Details(int id) {
 
+            
+
             var student = _studentSerivce.GetStudent(id);
+            _dummyClass.DummyGetStudents(id);
             if (student == null)
             {
                 TempData["ErrorMessage"] = "Student not found.";
@@ -37,7 +42,16 @@ namespace DemoMVCFW.Controllers
 
            }
 
+        public IActionResult Result()
+        {
+            var students = _studentSerivce.DataSource();
 
-        
+            return View(students);
+           
+
+        }
+
+
+
     }
 }

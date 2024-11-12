@@ -13,6 +13,20 @@ namespace DemoMVCFW.Controllers
             _logger = logger;
         }
 
+        public ViewResult Details()
+        {
+            ViewData["title"] = "Student details page";
+            ViewData["header"] = "student details";
+
+            Student student = new Student()
+            {
+                id = 5, name = "vanita" , age = 45 , email = "vanita@gmail.com",
+            };
+
+            ViewData["student"] = student;
+            return View();
+        }
+
         public IActionResult Index()
         {
             return View();
