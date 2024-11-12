@@ -29,4 +29,18 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+
+app.MapControllerRoute(
+    name: "StudentId",
+    pattern: "StudentDetails/{id :int}",
+    defaults: new { controller = "Student", action = "Details" });
+
+
+
+app.MapControllerRoute(
+    name: "StudentAll",
+    pattern: "Student/All",
+    defaults: new { controller = "Student", action = "Index" });
+
+
 app.Run();

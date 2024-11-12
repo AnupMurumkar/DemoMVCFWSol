@@ -29,11 +29,17 @@ namespace DemoMVCFW.Controllers
 
         public IActionResult Index()
         {
+            TempData["Name"] = "Anup";
+            TempData["Age"] = "22";
+            ViewData["designation"] = "PGET";
+            TempData.Keep("Name");
             return View();
         }
 
         public IActionResult Privacy()
         {
+
+            TempData.Keep("Name");
             return View();
         }
 
